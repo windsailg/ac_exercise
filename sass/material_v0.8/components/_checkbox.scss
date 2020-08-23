@@ -1,0 +1,142 @@
+
+@mixin cblist{
+//typeList
+.check_box{
+   .checker {
+      @include ibl;
+      position: relative;
+      width: auto;
+      padding: 6px 13px;
+      margin: 5px 18px 5px 0 ;
+      background-color:#ddd;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      user-select: none;
+      overflow: hidden;
+      @include tst;
+      input {
+         @include aa;
+         position: absolute;
+         opacity: 0;
+         cursor: pointer;
+         height: 100%;
+         width: 100%;
+         &:checked ~ .checkbg {
+            background-color:#0cdab2;
+            @include tst;
+         }
+         &:checked ~ .name {
+            color:#fff;
+            padding: 0 0px  0 10px;
+            
+         }
+         &:checked ~ .checkmark:after {
+            display: block;
+         }
+      }
+      .name{
+         position: relative;
+         z-index: 1;
+         padding: 0 10px ;
+      }
+      .checkbg{
+         @include ibl;
+         position: absolute;
+         @include aa;
+         height: 100%;
+         width: 100%;
+      }
+      .checkmark {
+         position: relative;
+         @include aa;
+         height: 100%;
+         width: 100%;
+         border: 0px solid transparent ;
+         &:after {
+            font-family: FontAwesome;
+            content: '\f00c';
+            @include atb;
+            position: relative;
+            float: left;
+            display: none;
+            color: #fff;
+            font-size: 16px;
+            width: 10px;
+            padding: 2px 0;
+            height: 14px;
+            
+         }
+      }
+   }
+
+}
+
+}
+
+@mixin cbform{
+//typeForm
+.check_box_typeform{
+   @include fxfs;
+   margin: 16px 0 0;
+   width: 100%;
+   .checker{
+      @include fxfs;
+      align-items: center;
+      position: relative;
+      width: auto;
+      cursor: pointer;
+      font-size: 16px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      input {
+         position: absolute;
+         opacity: 0;
+         cursor: pointer;
+         height: 0;
+         width: 0;
+      }
+      .text{
+         @include ibl;
+         width: auto;
+         font-size: 17px;
+      }
+      .checkmark{
+         @include ibl;
+         position: relative;
+         height: 22px;
+         width: 22px;
+         margin: 0 6px 0 0;
+         border-width: 1px ;
+         border-color: rgb(187, 187, 187);;
+         border-style: solid ;
+         &:after{
+            content: "";
+            position: absolute;
+            display: none;
+            @include arl;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+         }
+      }
+      input:checked ~ .checkmark {
+         background-color: #0cdab2;
+         border-color: transparent;;
+      }
+      input:checked ~ .checkmark:after {
+         display: block;
+      }
+   }
+}
+    
+}
+
+

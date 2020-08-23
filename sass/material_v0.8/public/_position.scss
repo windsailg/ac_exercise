@@ -1,0 +1,362 @@
+//Flex Dft
+@mixin flex-center {
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: row;
+	justify-content: center; //主軸對齊
+	align-items: center; //f次軸對齊
+	flex-wrap: wrap;
+}
+
+@mixin flex-center-vertical {
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: column;
+	justify-content: center; //主軸對齊
+	align-items: center; //次軸對齊
+}
+
+
+//Flex Box Static
+%fxrbase {
+	display: flex;
+	box-sizing: border-box;
+	flex-flow: row;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+@mixin fxb {
+	@extend %fxrbase;
+	justify-content: space-between;
+}
+
+@mixin fxc {
+	@extend %fxrbase;
+	justify-content: center;
+}
+
+@mixin fxe {
+	@extend %fxrbase;
+	justify-content: space-evenly;
+}
+
+@mixin fxa {
+	@extend %fxrbase;
+	justify-content: space-around;
+}
+
+@mixin fxfs {
+	@extend %fxrbase;
+	justify-content: flex-start;
+}
+
+@mixin fxfe {
+	@extend %fxrbase;
+	justify-content: flex-end;
+}
+
+//Flex Box Complete 100%
+%fxrbase_width {
+	display: flex;
+	box-sizing: border-box;
+	flex-flow: row;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+}
+
+%fxrbasecenter_width {
+	display: flex;
+	box-sizing: border-box;
+	flex-flow: row;
+	flex-wrap: wrap;
+	align-items: center;
+	width: 100%;
+}
+
+%fxrbasestar_width {
+	display: flex;
+	box-sizing: border-box;
+	flex-flow: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	width: 100%;
+}
+
+//Flex item center
+@mixin fxcw($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: center;
+	max-width: $width;
+}
+
+@mixin fxbw($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: space-between;
+	max-width: $width;
+}
+
+@mixin fxaw($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: space-around;
+	max-width: $width;
+}
+
+@mixin fxew($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: space-evenly;
+	max-width: $width;
+}
+
+@mixin fxfsw($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: flex-start;
+	max-width: $width;
+}
+
+@mixin fxfew($width:100%) {
+	@extend %fxrbase_width;
+	justify-content: flex-end;
+	max-width: $width;
+}
+
+
+//Flex item start
+@mixin fxcsw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: center;
+	max-width: $width;
+}
+
+@mixin fxbsw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: space-between;
+	max-width: $width;
+}
+
+@mixin fxasw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: space-around;
+	max-width: $width;
+}
+
+@mixin fxesw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: space-evenly;
+	max-width: $width;
+}
+
+@mixin fxasw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: space-around;
+	max-width: $width;
+}
+
+@mixin fxfssw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: flex-start;
+	max-width: $width;
+}
+
+@mixin fxfesw($width:100%) {
+	@extend %fxrbasestar_width;
+	justify-content: flex-end;
+	max-width: $width;
+}
+
+
+//Flex Direction Vertical 100%
+%fxcbase {
+	display: flex;
+	box-sizing: border-box;
+	flex-flow: column;
+	flex-wrap: nowrap;
+	align-items: flex-start;
+}
+
+@mixin fxv {
+	@extend %fxcbase;
+	justify-content: flex-start;
+}
+
+@mixin table-sticky-all($Rwd:581px) {
+	@include MCW($Rwd) {
+		overflow: scroll;
+
+		table {
+			width: $Rwd;
+
+			tr {
+				th {
+					position: sticky;
+					z-index: 2;
+					top: 0;
+
+					&:first-child {
+						left: 0;
+						z-index: 3;
+					}
+				}
+
+				td {
+					&:first-child {
+						position: sticky;
+						z-index: 1;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin table-sticky-th($Rwd:581px) {
+	@include MCW($Rwd) {
+		overflow: scroll;
+
+		table {
+			width: $Rwd;
+
+			tr {
+				th {
+					position: sticky;
+					z-index: 1;
+					top: 0;
+
+					&:first-child {}
+				}
+			}
+		}
+	}
+}
+
+@mixin table-sticky-td($Rwd:581px) {
+	@include MCW($Rwd) {
+		overflow: scroll;
+
+		table {
+			width: $Rwd;
+
+			tr {
+				td {
+					&:first-child {
+						position: sticky;
+						z-index: 1;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin ib() {
+	box-sizing: border-box;
+	display: inline-block;
+}
+
+@mixin ibl() {
+	box-sizing: border-box;
+	display: inline-block;
+	float: left;
+}
+
+@mixin ibr() {
+	box-sizing: border-box;
+	display: inline-block;
+	float: right;
+}
+
+
+%inlineblockwidthbase {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 100%
+}
+
+@mixin iblw($width:100%) {
+	@extend %inlineblockwidthbase;
+	max-width: $width;
+	float: left;
+}
+
+@mixin ibrw($width:100%) {
+	@extend %inlineblockwidthbase;
+	max-width: $width;
+	float: right;
+}
+
+@mixin ibw($width:100%) {
+	@extend %inlineblockwidthbase;
+	max-width: $width;
+}
+
+
+@mixin b() {
+	box-sizing: border-box;
+	display: block;
+}
+
+@mixin br() {
+	box-sizing: border-box;
+	display: block;
+	float: right;
+}
+
+@mixin bl() {
+	box-sizing: border-box;
+	display: block;
+	float: left;
+}
+
+//Margin Auto center all
+@mixin aa {
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+}
+
+//Margin Auto center top bottom
+@mixin atb {
+	top: 0;
+	margin-top: auto;
+	bottom: 0;
+	margin-bottom: auto;
+}
+
+//Margin Auto center top right left
+@mixin arl {
+	right: 0;
+	margin-right: auto;
+	left: 0;
+	margin-left: auto;
+}
+
+
+%blockclear {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+@mixin clean {
+	&::after {
+		@extend %blockclear;
+	}
+}
+
+//clean block margin auto
+@mixin cbma {
+	&::after {
+		@extend %blockclear;
+	}
+
+	margin: 0 auto;
+	display:block;
+	float: unset;
+}

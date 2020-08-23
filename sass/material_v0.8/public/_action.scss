@@ -1,0 +1,148 @@
+
+$bazer1:.17,.67,.83,.67;
+$duration1:3s;
+
+@mixin transition{
+    transition: .2s all ease-in ; 
+}
+
+@mixin tst($seconds:.2s,$timing_function:ease-out){
+    transition: $seconds all $timing_function ; 
+}
+
+@mixin hov_v($tsd:.0s){
+    visibility: visible;
+    opacity: 1;
+    transition-delay: $tsd;
+}
+@mixin hov_h($tsd:.3s){
+    visibility: hidden;
+    opacity: 0;
+    transition-delay: $tsd;
+}
+@mixin hover(){
+    @include tst;
+    cursor: pointer;
+    &:hover{
+        opacity: .8;
+        transition-duration: .1s;
+    }
+}
+@mixin hv2(){
+    @include tst;
+    @include bs(5px,5px,10px,rgba(27, 27, 27, 0.089));
+    &:hover{
+        transform: translate(-5px,-5px);
+        @include bs(5px,5px,4px,rgba(27, 27, 27, 0.199));
+    }
+}
+
+@mixin hv3($tslx:-5px,$tsly:-5px){
+    @include tst;
+    &:hover{
+        transform: translate($tslx,$tsly);
+        @include ds(5px,5px,4px,rgba(27, 27, 27, 0.199));
+    }
+}
+
+@mixin hvc(){
+    @include tst;
+    cursor: pointer;
+    &:hover{
+        @content;
+    }
+}
+
+//滑過浮起 hover style
+@mixin hos(){
+    @include tst;
+    @include bs(5px,5px,8px,rgba(27, 27, 27, 0.089));
+    &:hover{
+        transform: translate(-5px,-5px);
+        @include bs(5px,5px,12px,rgba(27, 27, 27, 0.2));
+    }
+}
+//dropShade ver
+@mixin hos_drop(){
+    @include tst;
+    @include ds(5px,5px,8px,rgba(27, 27, 27, 0.089));
+    &:hover{
+        transform: translate(-5px,-5px);
+        @include ds(5px,5px,12px,rgba(27, 27, 27, 0.2));
+    }
+}
+//滑過壓下 hover style2
+@mixin hos2(){
+    @include tst;
+    @include bs(5px,5px,10px,rgba(27, 27, 27, 0.089));
+    &:hover{
+        transform: translate(5px,5px);
+        @include bs(5px,5px,4px,rgba(27, 27, 27, 0.199));
+    }
+}
+
+//dropShade ver
+@mixin hos2_drop(){
+    @include tst;
+    @include ds(5px,5px,10px,rgba(27, 27, 27, 0.089));
+    &:hover{
+        transform: translate(5px,5px);
+        @include ds(5px,5px,4px,rgba(27, 27, 27, 0.199));
+    }
+}
+
+
+@mixin selection_none{
+    user-select: none;
+}
+@mixin tap_none{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+%animation-curcle{
+    animation-name: curcle;
+    animation-duration: $duration1;
+    animation-iteration-count: infinite;
+    animation-timing-function:cubic-bezier($bazer1);
+}
+
+@mixin scroll_smooth{
+    html{
+        scroll-behavior: smooth;
+    }
+}
+
+@function set-notification-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000000; // Lighter backgorund, return dark color
+    } @else {
+        @return #ffffff; // Darker background, return light color
+    }
+}
+
+@mixin typewriter(){
+    .typewriter{
+      color: #fff;
+      font-family: monospace;
+      overflow: hidden; /* Ensures the content is not revealed until the animation */
+      border-right: .0em solid orange; /* The typwriter cursor */
+      white-space: nowrap; /* Keeps the content on a single line */
+      margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+      letter-spacing: .15em; /* Adjust as needed */
+      animation: 
+        typing 3.5s steps(30, end) ,
+        blink-caret .0s step-end infinite;
+    }
+
+    /* The typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: orange }
+    }
+}

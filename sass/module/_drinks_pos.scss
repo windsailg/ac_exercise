@@ -1,0 +1,75 @@
+
+body{
+    background-color: #4b575f;
+
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // background: url('alphaPos-bg.jpg') no-repeat center center;
+    background-size: cover;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+[data-alpha-pos="delete-drink"] {
+    display: inline-block;
+    text-align: center;
+    color: #999;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 1;
+    user-select: none;
+    &:hover {
+        color: #333;
+    }
+}
+
+.container{
+    background-color: #00000042;
+    box-shadow: 0px 0px 20px #0000007e;
+    border-radius: 3px;
+}
+.menu{
+    .card-body {
+        cursor: pointer;
+    }
+    .card:hover {
+        box-shadow: 0px 0px 10px 1px rgba(255,255,255,0.8);
+    }
+}
+.col-md-4, 
+.col-md-8{
+    // background-color: #eeeeee;
+    min-height: 600px;
+    // outline:1px solid #ffffff;
+}
+.row {
+    max-height: 600px;
+  }
+.col-md-4 {
+    overflow-y: auto;
+    max-height: 580px;
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color:rgba(255, 255, 255, 0.9);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        margin:8px 0 ;
+    }
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgb(134, 134, 134);
+        border-style: solid;
+        border-width: 0px 0px 0px 0px;
+    }
+}

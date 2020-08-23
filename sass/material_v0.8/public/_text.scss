@@ -1,0 +1,23 @@
+
+
+@mixin nowrap($height:40px){
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height:$height;
+}
+@mixin nowrapClear(){
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:clip;
+}
+
+@mixin multi_nowrap($row:2){
+   -webkit-line-clamp:$row;/* 設定欲顯示的行數，超出則顯示省略符號(...)。 */
+   -webkit-box-orient: vertical; /* 設定 box 的子元素，是由上往下垂直排列。 */
+    display: -webkit-box;/* 設定 display 為 -webkit-box 元素。 */
+    overflow: hidden;
+}
+
+
+

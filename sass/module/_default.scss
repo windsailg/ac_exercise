@@ -1,0 +1,76 @@
+
+// @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+.area{
+    @include fxcw();
+    background-color: #eeeeee;
+    .container{
+        @include fxfsw(1280px);
+        padding: 20px 10px;
+    }
+}
+
+.vue__first{
+    @include fxcw();
+    font-size: 3em;
+    margin: 10px 0;
+    padding: 10px 0;
+}
+.vue__show{
+    padding: 20px 0;
+    font-weight: bold;
+}
+input{
+    padding: 5px;
+    font-size: 1.2em;
+}
+div{
+    line-height: 1.2em;
+}
+.todolist__title{
+    margin: 10px 0 ;
+}
+.filter__btn{
+    margin: 2px 6px;
+    padding: 6px;
+    border:1px solid #666666;
+}
+.filter__isactive{
+    background-color: #a7ffc1;
+    border:1px solid #666666;
+}
+.todolist{
+    min-height: 1em;
+    padding: 5px;
+    margin: 5px 0 ;
+    &.todolist__add{
+        animation:fadein 1.2s  ease-in-out; 
+        -webkit-animation:fadein 1.2s  ease-in-out;;
+    }
+    .iscompleted{
+        text-decoration: line-through;
+        color: #999999;
+    }
+    .statu__iscomplete{
+        padding: 2px 4px;;
+        font-size: .7em;
+        font-weight: 600;
+        border: 1px solid #3fad3f;
+        color: #3fad3f;
+    }
+    .todolist__item--delet{
+        font-size: .8em;
+        color: #b91b1b;
+    }
+}
+
+
+@keyframes fadein{
+    0%{
+        background-color: #74747431;
+    }
+    100%{
+        background-color: #ffffff00;
+    }
+}

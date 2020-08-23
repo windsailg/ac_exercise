@@ -1,0 +1,82 @@
+$media-1281:1281px;
+$media-1171:1171px;
+$media-1051:1051px;
+$media-930:930px;
+$media-770:770px;
+$media-600:600px;
+$media-580:580px;
+$media-480:480px;
+
+$media-1301:1301px;
+
+@mixin rwd_dp($width:1301px){
+   &.dp-tab{
+      @include MCW($width){
+        display: none;
+      }
+   }
+   &.dp-mob{
+      display: none;
+      @include MCW($width){
+         display: block;
+      }
+   }
+}
+
+
+//true RWD Variable
+@mixin MCW($CW:1281px) {
+   @media all and (max-width:$CW) {
+      @content;
+   }
+}
+
+@mixin M1301() {
+   @media all and (max-width:$media-1301) {
+      @content;
+   }
+}
+
+@mixin M1281() {
+   @media all and (max-width:$media-1281) {
+      @content;
+   }
+}
+
+@mixin M1051() {
+   @media all and (max-width:$media-1051) {
+      @content;
+   }
+}
+
+@mixin M1171() {
+   @media all and (max-width:$media-1171) {
+      @content;
+   }
+}
+@mixin M930() {
+   @media all and (max-width:$media-930) {
+      @content;
+   }
+}
+@mixin M770() {
+   @media all and (max-width:$media-770) {
+      @content;
+   }
+}
+@mixin M580() {
+   @media all and (max-width:$media-580) {
+      @content;
+   }
+}
+@mixin M600() {
+   @media all and (max-width:$media-600) {
+      @content;
+   }
+}
+
+@mixin M480() {
+   @media all and (max-width:$media-480) {
+      @content;
+   }
+}

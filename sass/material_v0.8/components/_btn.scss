@@ -1,0 +1,67 @@
+
+
+@mixin btns($colors:#eee){
+	@extend %transition;
+	@extend %selection;
+	background-color:$colors;
+	display: inline-block;
+	padding: 10px 20px;
+	border: solid 1px #a09e9e;
+	margin: 10px;
+	font-family: Lucida Calligraphy,century gothic;
+	font-weight: 600;
+	outline: none;
+}
+
+@mixin btndefault($c(5, 129, 179);$pd:12px 40px){
+	@include tst;
+   font-family: 'Century Gothic','Arial','微軟正黑體','FontAwesome', '新細明體';
+   border: 0px solid #fff;
+   cursor:pointer;
+   color:#fff;
+   outline:none;
+	border-radius: 5px;
+	font-size: 16px;
+
+	background: r$c;
+   padding: $pd;
+   
+   &:hover{
+      opacity: .8;
+   }
+}
+
+
+.boxer{
+	border: solid 1px #0cdab2;
+	padding: 20px;
+	height: 500px;
+	background-color: #e7e7e7;
+	@extend %flexbox-center;
+	@extend %transition;
+	&:hover{
+		background-color: #f3f3f3;
+	}
+	.yellow{	
+		@include btns(red);
+	}
+	.gray{	
+
+		@include btns(rgb(209, 209, 209));
+	}
+	.mint{	
+
+		@include btns(#0cdab2);
+	}
+
+	.lg{
+		padding: 30px 60px ;
+	}
+
+}
+
+
+
+
+
+     

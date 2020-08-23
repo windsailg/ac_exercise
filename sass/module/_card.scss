@@ -1,0 +1,133 @@
+body{
+    background-color: #35343b;
+    overflow: hidden;
+}
+#header{
+    display: flex;
+    margin: 0;
+    flex-direction: column ;
+    width:100%;
+    align-items: flex-end;
+    color: #e7e7e7;
+    .title{
+        display: flex;
+    }
+    img{
+        max-width: 3em;
+        filter: invert(1);
+    }
+    h2{
+        padding:0 0 0 .5em;
+    }
+    .score {
+        margin: 0;
+        color: #b4deff;
+        padding:0 1em 0 0;
+    }
+    .tried {
+        padding:.3em 1.5em .3em 0;
+        margin: 0 0 0 0;
+    }
+}
+
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: center;
+}
+
+.card{
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    flex:7% 0 1;
+    height: 8vw;
+    border: 2px solid #3b3b3b;
+    background-color: #ffffff;
+    justify-content: space-around;
+    position: relative;
+    &.wrong{
+        &::after{
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            outline: 0px solid #eec74900;
+            animation: wrongAnimation .9s ease-in-out 2;
+            z-index: 10;
+        }
+    }
+    img{
+        max-width: 30%;
+        align-self: center;
+    }
+    span{
+        padding: 10px;
+        font-size: 1.6em;
+        font-weight: bold;
+        -webkit-text-stroke:.5px  #888888;
+        &:last-child{
+            transform: rotate(180deg);
+        }
+    }
+    &.back{
+        background:url('https://assets-lighthouse.alphacamp.co/uploads/image/file/9222/ExportedContentImage_00.png');
+        background-size: cover;
+    }
+    &.paired{
+        background-color: #757c85;
+    }
+}
+
+.completed{
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    max-height: 100px;
+    background-color: rgba(54, 64, 70, 0.8);
+    width: 100vw;
+    padding: 50px 0;
+    text-align: center;
+
+    h2{
+        font-size: 2em;
+        color: #ffffff;
+        margin: 0; 
+    }
+    p{
+        font-size: 1em;
+        font-weight: 700;
+        color: #dddddd;
+        &:first-child{
+            font-weight: 700;
+            font-size:2em;
+        }
+    }
+}
+
+
+
+@keyframes wrongAnimation{
+    0%{
+        outline: 0px solid #b4ee4900;
+    }
+    15%{
+        outline: 6px solid #f8be51c2;
+    }
+    80%{
+        
+        outline: 8px solid #f8be5118;
+    }
+    100%{
+        
+        transform: scale(1.1);
+        outline: 4px solid #eec74900;
+    }
+}

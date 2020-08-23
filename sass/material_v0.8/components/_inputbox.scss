@@ -1,0 +1,10 @@
+
+
+
+@mixin input-style(){
+  
+   &[type="text"]:focus{
+      border-color:  #FF7757;
+   }
+   
+}

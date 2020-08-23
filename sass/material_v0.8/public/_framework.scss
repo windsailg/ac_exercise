@@ -1,0 +1,206 @@
+
+
+@mixin cols($w:100%){
+   &.cols{
+      @include flex-center;
+      width:$w;
+      > .col2{
+         overflow: hidden;
+         width: $w/2;
+      }
+      > .col3{
+         overflow: hidden;
+         width:$w/3;
+      }
+      > .col4{
+         overflow: hidden;
+         width: $w/4;
+      }
+      > .col5{
+         overflow: hidden;
+         width: $w/5
+      }
+      > .col6{
+         overflow: hidden;
+         width: $w/6
+      }
+      @content;
+   }
+}
+@mixin col2($w:100%,$rwd:861px){
+    @include fxb;
+    > .col2{
+        overflow: hidden;
+        width: $w/2;
+        @include MCW($rwd) {
+        width: 100%;
+        }
+        @content;
+    }
+}
+@mixin col3($w:100%,$rwd:861px){
+   @include fxb;
+    > .col3{
+        overflow: hidden;
+        width: $w/3;
+        @include MCW($rwd) {
+            width: 100%;
+        }
+        @content;
+    }
+}
+@mixin col4($w:100%,$rwd:861px){
+   @include fxb;
+    > .col4{
+        overflow: hidden;
+        width: $w/4;
+        @include MCW($rwd) {
+            width: 100%;
+        }
+        @content;
+    }
+}
+@mixin col5($w:100%,$rwd:861px){
+   @include fxb;
+    > .col5{
+        overflow: hidden;
+        width: $w/5;
+        @include MCW($rwd) {
+            width: 100%;
+        }
+        @content;
+    }
+}
+@mixin col6($w:100%,$rwd:861px){
+   @include fxb;
+    > .col6{
+        overflow: hidden;
+        width: $w/6;
+        @include MCW($rwd) {
+            width: 100%;
+        }
+        @content;
+    }
+}
+
+//fatherBlock
+@mixin cols_2($w:100%,$rwd:861px){
+    &.cols_2{
+       @include fxb;
+        > .col{
+            overflow: hidden;
+            width: $w/2;
+            @include MCW($rwd) {
+                width: 100%;
+            }
+        }
+        @content;
+    }
+}
+
+@mixin cols_3($w:100%,$rwd:861px){
+    &.cols_3{
+       @include fxb;
+        > .col{
+            overflow: hidden;
+            width: $w/3;
+            @include MCW($rwd) {
+                width: 100%;
+            }
+            
+        }
+        @content;
+    }
+}
+
+@mixin cols_4($w:100%,$rwd:681px){
+    &.cols_4{
+       @include fxb;
+        > .col{
+            overflow: hidden;
+            width: $w/4;
+            @include MCW($rwd) {
+                width: 100%;
+            }
+        }
+        @content;
+    }
+}
+
+@mixin cols_5($w:100%,$rwd:681px){
+    &.cols_5{
+       @include fxb;
+        > .col{
+            overflow: hidden;
+            width: $w/5;
+            @include MCW($rwd) {
+                width: 100%;
+            }
+        }
+        @content;
+    }
+}
+
+@mixin all_clos(){
+    @include cols_2();
+    @include cols_3();
+    @include cols_4();
+    @include cols_5();
+}
+
+
+
+//父容器不須特別命名 後定義子容器的class col2 col3(用外包一層DIV的方式即可)
+//FLEX style
+%colrwdwidth{
+    width:100%;
+}
+@mixin cols_v2($w:100%){
+      @include fxb;
+      > .col{
+         overflow: hidden;
+         width: $w;
+      }
+      > .col2{
+         overflow: hidden;
+         width: $w/2;
+          @include MCW(781px){
+              width:100%;
+          }
+      }
+      > .col3{
+         overflow: hidden;
+         width:$w/3;
+          @include MCW(781px){
+              width:100%;
+          }
+      }
+      > .col4{
+         overflow: hidden;
+         width: $w/4;
+          @include MCW(781px){
+              width:100%;
+          }
+      }
+      > .col5{
+         overflow: hidden;
+         width: $w/5;
+          @include MCW(781px){
+              width:100%;
+          }
+      }
+      > .col6{
+         overflow: hidden;
+         width: $w/6;
+          @include MCW(781px){
+              width:100%;
+          }
+      }
+      @content;
+}
+
+
+
+
+
+

@@ -1,0 +1,266 @@
+//纖細滾動條樣式
+@mixin ScrollBar(){
+    &::-webkit-scrollbar {
+        width: 7px;
+        background-color:rgba(255, 255, 255, 0.9);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        margin:8px 0 ;
+    }
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgb(134, 134, 134);
+
+        border-style: solid;
+        border-width: 0px 0px 0px 0px;
+        
+    }
+}
+@mixin sbt(){
+    &::-webkit-scrollbar {
+        width: 2px;
+        background-color:rgba(220, 220, 220, 0.9);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        margin:2px 0 ;
+    }
+    &::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: rgb(134, 134, 134);
+        border-style: solid;
+        border-width: 0px 0px 0px 0px;
+    }
+}
+//隱藏滾動條
+@mixin ScrollBar-hide(){
+    &::-webkit-scrollbar { 
+        width: 0 ; 
+     }
+}
+@mixin PlaceHolder-Style($color:rgb(172, 172, 172),$opacity:1){
+       font-family: 'Century Gothic','Arial','Source Sans Pro' , 'Muli' ,'微軟正黑體','FontAwesome', '新細明體';
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $color;
+        opacity: $opacity; /* Firefox */
+      }
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $color;
+      }
+      & ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $color;
+      }
+}
+@mixin ff{
+    font-family: 'Century Gothic','Arial','Source Sans Pro' , 'Muli' ,'微軟正黑體','FontAwesome', '新細明體';
+}
+//Fontawesome font family
+
+@mixin fontawesome(){
+    font-family: FontAwesome;
+}
+@mixin block(){
+    box-sizing: border-box;
+    display: block;
+ }
+@mixin block-float($float:left){
+box-sizing: border-box;
+display: block;
+float:$float;
+}
+@mixin inline-block(){
+box-sizing: border-box;
+display: inline-block;
+float: left;
+}
+@mixin border-solid($borderColor:#f19100 ,  $borderWidth:1px){
+border-color: $borderColor;
+border-width:  $borderWidth;
+border-style: solid;
+}
+@mixin box-shadow(){
+    box-shadow: 0px 0px 10px rgba(75, 75, 75, 0.26);
+}
+@mixin box-shadow($color:rgba(17, 17, 17, 0.26)){
+    box-shadow: 0px 0px 10px $color;
+}
+@mixin bs($sha_x:5px,$sha_y:5px,$sha_b:10px,$sha_color:rgba(77, 77, 77, 0.116)){
+    box-shadow:$sha_x $sha_y $sha_b $sha_color;
+}
+@mixin ds($sha_x:5px,$sha_y:5px,$sha_b:5px,$sha_color:rgba(48, 48, 48, 6)){
+    -webkit-filter: drop-shadow($sha_x $sha_y $sha_b $sha_color);
+    filter: drop-shadow($sha_x $sha_y $sha_b $sha_color);
+}
+
+@mixin Background-Parallax_style1 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin Background-style1{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin bg-loading{
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@mixin filter-blur($blur:5px){
+    -moz-filter: blur($blur);
+    -webkit-filter: blur($blur);
+    -o-filter: blur($blur);
+    -ms-filter: blur($blur);
+    filter: blur($blur);
+}
+@mixin bgg($color1:#fff ,$color2:#000){
+    background: linear-gradient($color1, $color2);
+}
+@mixin bga(){
+   background: rgb(153, 186, 248);
+}
+@mixin grayscale($grayscale:100%){
+    -webkit-filter: grayscale($grayscale);
+}
+@mixin deco-after(){
+    @include ibl;
+    content:'';
+    width: 1px;
+    height: 70%;
+    background-color:$color_fs_gray; 
+    position: absolute;
+    right: 20px;
+    top:0;
+    bottom: 0;
+    margin: auto 0;
+}
+@mixin deco-nlc(){
+    &:not(:last-child)::after{
+       content:' ';
+       @include b;
+       position: absolute;
+       width: 1px;
+       height: 40%;
+       right: 0px;
+       @include atb;
+       transform: skew(-12deg,0);
+       background-color: rgb(107, 107, 107);
+       @include MCW(681px) {
+          display: none;
+       }
+    }
+}
+
+@mixin fliper($perspective:1000px){
+    transform-style:preserve-3d;
+    perspective:$perspective;//透視
+    .blcok{
+        @include tst(.4s);
+        &:hover{
+            transform: rotateY(360deg);
+        }
+    }
+}
+@mixin btn(){
+    cursor: pointer;
+
+}
+@mixin hr{
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+@mixin rating_star(){
+    // @import url(https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+    .rating-container {
+      display: inline-block;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .rating {
+      float: left;
+
+      > input {
+        display: none;
+      }
+
+      > label {
+        float: right;
+        color: #ddd;
+
+        &::before {
+          display: inline-block;
+          padding-right: 5px;
+          font-size: 3rem;
+          font-family: FontAwesome;
+          content: '\f005';
+        }
+      }
+
+      > .halfstar {
+        &::before {
+          position: absolute;
+          padding-right: 0;
+          content: "\f089";
+        }
+      }
+
+      > .hidden {
+        &::before {
+          width: 5px;
+          padding-right: 0;
+          visibility: hidden;
+        }
+      }
+    }
+
+    .rating > input:checked ~ label {
+      color: #f2a9ef;
+    }
+}
+
+@mixin swiper-btn-style(){
+    .swiper_overflower{
+        overflow:hidden;
+     }
+     .swiper-button-prev ,
+     .swiper-button-next {
+        background-size: 140%;
+        outline:none;
+     }
+     .swiper-button-prev {
+        background-image: url("../img/course_prev.svg");
+        left: 20px;
+        right: auto;
+        @include MCW(861px){
+           left: 10px;
+        }
+     }
+     .swiper-button-next {
+        background-image: url("../img/course_next.svg");
+        right:20px;
+        left: auto;
+        @include MCW(861px){
+           right:10px;
+        }
+     }
+     .swiper-button-prev.swiper-button-disabled, 
+     .swiper-button-next.swiper-button-disabled{
+        opacity: 0;
+     }
+}
+
+
